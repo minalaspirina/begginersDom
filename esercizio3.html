@@ -1,0 +1,56 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<h1>convertire da ore e minuti in millisecondi</h1>
+
+	<form id="myForm" method="get">
+		<input
+				type="text"
+				name="user_input_ore"
+				id="user_input_ore"
+				value=""
+				placeholder="inserire quantita di ore"/>
+
+        <input
+			type="text"
+			name="user_input_minuti"
+			id="user_input_minuti"
+			value=""
+			placeholder="inserire quantita di minuti"/>
+
+		<button type="submit">invia per convertire</button>
+	</form>
+
+	<div id="output"></div>
+
+
+
+
+
+
+<script type="text/javascript"">
+    function calcolatoreMilli(minutes, ore) {
+    let mseconds = (minutes * 60 * 1000) + (ore * 60 * 60 * 1000)
+    return mseconds
+}
+
+let form = document.querySelector("#myForm")
+
+form.addEventListener("submit", function(e){
+
+    e.preventDefault()
+    let inputOre = document.querySelector("#user_input_ore")
+    let inputMinuti = document.querySelector("#user_input_minuti")
+
+    let ore = parseInt(inputOre.value)
+    let minuti = parseInt(inputMinuti.value)
+    let mseconds = calcolatoreMilli(minuti, ore)
+
+    let output = document.querySelector("#output")
+
+    output.innerHTML = `ci sono ${mseconds} millisecondi in ${minuti} minuti e ${ore} ore `
+})
+</script>
+	</body>
+</html>

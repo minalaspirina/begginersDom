@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+	</head>
+	<body>
+		<h1>GIUDIZIO VOTI</h1>
+
+		<form id="myForm" method="get">
+			<input
+				type="text"
+				name="user_input"
+				id="user_input"
+				value=""
+				placeholder="inserire un voto"
+			/>
+
+			<button type="submit">clicca per il giudizio</button>
+		</form>
+
+		<div id="output"></div>
+
+
+
+		
+
+		<script type="text/javascript">
+			function Ggiudizio(voto) {
+	let judgement;
+	if (voto < 6) {
+		judgement = "insufficente";
+	} else if (voto >= 6 && voto <= 6.9) {
+		judgement = "sufficente";
+	} else if (voto >= 7 && voto <= 7.9) {
+		judgement = "discreto";
+	} else {
+		judgement = "buono";
+	}
+
+	return judgement;
+}
+
+let form = document.querySelector("#myForm");
+
+form.addEventListener("submit", function (e) {
+	e.preventDefault();
+	let inputText = document.querySelector("#user_input");
+
+	let voto = parseFloat(inputText.value);
+
+	let giudizio;
+	giudizio = Ggiudizio(voto);
+
+	let output = document.querySelector("#output");
+	output.innerHTML = `il giudizio è ${giudizio}`;
+});
+		</script>
+	</body>
+</html>
